@@ -63,7 +63,7 @@ module Escper
       bytes_written = nil
       printer[:copies].times do |i|
         # The method .write works for SerialPort, File and TCPSocket, so we don't have to distinguish here.
-        bytes_written = @open_printers[printer_id][:device].write output_text
+        bytes_written = @open_printers[printer_id][:device].puts output_text
         if output_text.length != bytes_written
           Escper.log "[print] WARN: Byte count mismatch: sent #{text.length} bytes, actually written #{bytes_written} bytes"
         end
